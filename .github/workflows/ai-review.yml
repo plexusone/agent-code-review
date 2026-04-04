@@ -1,0 +1,91 @@
+name: AI Code Review
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'Pull Request number to review'
+        required: true
+        type: number
+      model:
+        description: 'LLM model to use'
+        required: false
+        default: 'claude-sonnet-4'
+        type: choice
+        options:
+          - claude-sonnet-4
+          - claude-opus-4
+          - gpt-4o
+          - gpt-4-turbo
+          - gemini-1.5-pro
+          - grok-2
+      scope:
+        description: 'Review focus'
+        required: false
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - security
+          - style
+          - performance
+      event:
+        description: 'Review event (leave empty to use AI verdict)'
+        required: false
+        default: ''
+        type: choice
+        options:
+          - ''
+          - COMMENT
+          - APPROVE
+          - REQUEST_CHANGES
+      dry_run:
+        description: 'Dry run (print review without posting)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  ai-review:
+    name: AI Review PR #${{ inputs.pr_number }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Install acr
+        run: go install github.com/plexusone/agent-code-review/cmd/acr@latest
+
+      - name: Run AI Review
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: |
+          # Build command
+          CMD="acr ai-review ${{ inputs.pr_number }}"
+          CMD="$CMD -o ${{ github.repository_owner }}"
+          CMD="$CMD -r ${{ github.event.repository.name }}"
+          CMD="$CMD --model ${{ inputs.model }}"
+          CMD="$CMD --scope ${{ inputs.scope }}"
+
+          # Add event override if specified
+          if [ -n "${{ inputs.event }}" ]; then
+            CMD="$CMD --event ${{ inputs.event }}"
+          fi
+
+          # Add dry-run flag if enabled
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            CMD="$CMD --dry-run"
+          fi
+
+          echo "Running: $CMD"
+          eval $CMD
