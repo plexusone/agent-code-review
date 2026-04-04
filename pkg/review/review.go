@@ -61,7 +61,7 @@ type ReviewInput struct {
 
 // ReviewResult contains the result of a review operation.
 type ReviewResult struct {
-	ID     int64
+	ID      int64
 	HTMLURL string
 }
 
