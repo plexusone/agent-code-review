@@ -183,7 +183,7 @@ func TestCreateReview_AppendsFooter(t *testing.T) {
 
 	handler := func(w http.ResponseWriter, r *http.Request) {
 		// Enterprise URLs include /api/v3/ prefix
-		if r.Method == "POST" && (r.URL.Path == "/repos/owner/repo/pulls/1/reviews" || r.URL.Path == "/api/v3/repos/owner/repo/pulls/1/reviews") {
+		if r.Method == http.MethodPost && (r.URL.Path == "/repos/owner/repo/pulls/1/reviews" || r.URL.Path == "/api/v3/repos/owner/repo/pulls/1/reviews") {
 			// Parse the request body to capture the review body
 			var req struct {
 				Body  string `json:"body"`

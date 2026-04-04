@@ -59,7 +59,7 @@ func TestReadBody_File(t *testing.T) {
 	// Create temp file
 	dir := t.TempDir()
 	path := filepath.Join(dir, "body.txt")
-	if err := os.WriteFile(path, []byte("file content"), 0644); err != nil {
+	if err := os.WriteFile(path, []byte("file content"), 0600); err != nil {
 		t.Fatalf("failed to create temp file: %v", err)
 	}
 
@@ -108,7 +108,7 @@ func TestReadBody_TextOverridesFile(t *testing.T) {
 	// Create temp file
 	dir := t.TempDir()
 	path := filepath.Join(dir, "body.txt")
-	if err := os.WriteFile(path, []byte("file content"), 0644); err != nil {
+	if err := os.WriteFile(path, []byte("file content"), 0600); err != nil {
 		t.Fatalf("failed to create temp file: %v", err)
 	}
 
@@ -128,7 +128,7 @@ func TestReadBody_FileOverridesStdin(t *testing.T) {
 	// Create temp file
 	dir := t.TempDir()
 	path := filepath.Join(dir, "body.txt")
-	if err := os.WriteFile(path, []byte("file content"), 0644); err != nil {
+	if err := os.WriteFile(path, []byte("file content"), 0600); err != nil {
 		t.Fatalf("failed to create temp file: %v", err)
 	}
 
