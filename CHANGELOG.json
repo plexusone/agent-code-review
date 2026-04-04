@@ -1,0 +1,52 @@
+{
+  "irVersion": "1.0",
+  "project": "agent-code-review",
+  "repository": "https://github.com/plexusone/agent-code-review",
+  "versioning": "semver",
+  "commitConvention": "conventional",
+  "maintainers": ["plexusone", "johncwang@gmail.com"],
+  "releases": [
+    {
+      "version": "v0.1.0",
+      "date": "2026-04-04",
+      "highlights": [
+        { "description": "AI-powered code review tool for GitHub PRs with SDK, CLI, and MCP server interfaces" },
+        { "description": "Reviews posted as GitHub App bot for clear distinction from human reviews" }
+      ],
+      "added": [
+        { "description": "Go SDK (`pkg/review`) for GitHub code review operations: CreateReview, CreateComment, CreateLineComment, GetPR, GetPRDiff, ListOpenPRs", "commit": "a8d47cb" },
+        { "description": "MCP server (`internal/mcp`) exposing 6 tools for Claude Code integration: review_pr, comment_pr, line_comment, get_pr_diff, get_pr, list_prs", "commit": "3bceb6a" },
+        { "description": "CLI (`cmd/acr`) with commands: review, comment, diff, get, list, serve", "commit": "b04bd5f" },
+        { "description": "Config package (`pkg/config`) for auth resolution and client creation", "commit": "e3926f3" },
+        { "description": "Input package (`pkg/input`) for PR number parsing, body reading, and event validation", "commit": "3e66021" },
+        { "description": "Dual authentication support: GitHub App or personal access token", "commit": "a8d47cb" },
+        { "description": "Flexible CLI input: body from flags, files, or stdin", "commit": "b04bd5f" },
+        { "description": "JSON output mode for CLI commands", "commit": "b04bd5f" },
+        { "description": "Automatic review footer for transparency", "commit": "a8d47cb" }
+      ],
+      "fixed": [
+        { "description": "Add error wrapping to SDK write operations for better debugging", "commit": "90797ae" }
+      ],
+      "tests": [
+        { "description": "Unit tests for `pkg/review` with mock GitHub server", "commit": "e8f104e" },
+        { "description": "Unit tests for `pkg/config` covering repo resolution scenarios", "commit": "e3926f3" },
+        { "description": "Unit tests for `pkg/input` covering PR parsing, body reading, and event validation", "commit": "3e66021" }
+      ],
+      "documentation": [
+        { "description": "README with installation, authentication setup, CLI usage, SDK integration, and MCP configuration", "commit": "0bdbdf5" },
+        { "description": "Agent specification for code reviewer in multi-agent-spec format", "commit": "f60c5cb" }
+      ],
+      "build": [
+        { "description": "GitHub Actions workflows for CI, linting, integration tests, and CodeQL SAST", "commit": "7be457d" },
+        { "description": "Makefile with targets: build, test, lint, clean, install, serve, fmt, deps", "commit": "56eaa97" },
+        { "description": "golangci-lint configuration with errcheck, gosec, errorlint, and others", "commit": "855a10d" }
+      ],
+      "dependencies": [
+        { "description": "`github.com/google/go-github/v84` for GitHub API client", "commit": "4947919" },
+        { "description": "`github.com/grokify/gogithub` v0.11.0 for GitHub App authentication", "commit": "4947919" },
+        { "description": "`github.com/modelcontextprotocol/go-sdk` v1.4.1 for MCP server", "commit": "4947919" },
+        { "description": "`github.com/spf13/cobra` v1.10.2 for CLI framework", "commit": "4947919" }
+      ]
+    }
+  ]
+}

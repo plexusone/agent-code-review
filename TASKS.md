@@ -2,9 +2,11 @@
 
 ## Open
 
-- [ ] **Add CHANGELOG** - Track changes for releases
+(none)
 
 ## Completed
+
+- [x] **Add CHANGELOG** - Track changes for releases with structured-changelog
 
 - [x] **Extract testable libraries** - Move CLI/MCP functionality to `pkg/config` and `pkg/input` for unit testing
 - [x] **Remove local replace directive** - Clean up `go.mod` before pushing to origin
