@@ -1,16 +1,16 @@
 # Tasks
 
-## High Priority
+## Open
 
-- [x] **Remove local replace directive** - Clean up `go.mod` before pushing to origin (already done)
-- [x] **Add tests** - Unit tests for `pkg/review` and integration tests for CLI commands
+- [ ] **Add MCP server tests** - Unit tests for `internal/mcp` with mock review client
+- [ ] **Add CLI integration tests** - Test CLI commands with mock GitHub server
+- [ ] **Add CHANGELOG** - Track changes for releases
 
-## Medium Priority
+## Completed
 
-- [x] **Add CI workflow** - GitHub Actions workflow for lint/test/build (already exists in .github/workflows/)
-- [x] **Consider error wrapping** - Use `fmt.Errorf("context: %w", err)` for better debugging and stack traces
-
-## Low Priority
-
+- [x] **Remove local replace directive** - Clean up `go.mod` before pushing to origin
+- [x] **Add tests** - Unit tests for `pkg/review`
+- [x] **Add CI workflow** - GitHub Actions workflow for lint/test/build
+- [x] **Add error wrapping** - Wrap errors in SDK write operations for better debugging
 - [x] **Add golangci-lint config** - Create `.golangci.yml` with project-specific linting rules
 - [x] **Add Makefile** - Common targets for build, test, lint, install
