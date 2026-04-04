@@ -71,7 +71,7 @@ func (c *Client) CreateReview(ctx context.Context, input *ReviewInput) (*ReviewR
 	body := input.Body + ReviewFooter
 	review, err := pr.CreateReview(ctx, c.gh, input.Owner, input.Repo, input.PRNumber, pr.ReviewEvent(input.Event), body)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("creating review: %w", err)
 	}
 	return &ReviewResult{
 		ID:      review.GetID(),
@@ -99,7 +99,7 @@ func (c *Client) CreateComment(ctx context.Context, input *CommentInput) (*Comme
 	body := input.Body + ReviewFooter
 	comment, err := pr.CreateIssueComment(ctx, c.gh, input.Owner, input.Repo, input.PRNumber, body)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("creating comment: %w", err)
 	}
 	return &CommentResult{
 		ID:      comment.GetID(),
@@ -122,7 +122,7 @@ type LineCommentInput struct {
 func (c *Client) CreateLineComment(ctx context.Context, input *LineCommentInput) (*CommentResult, error) {
 	comment, err := pr.CreateLineComment(ctx, c.gh, input.Owner, input.Repo, input.PRNumber, input.CommitID, input.Path, input.Body, input.Line)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("creating line comment: %w", err)
 	}
 	return &CommentResult{
 		ID:      comment.GetID(),
