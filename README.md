@@ -18,11 +18,11 @@ Reviews are posted as a GitHub App, appearing as `PlexusOne Code Review[bot]`, c
 
 ## Features
 
-- **GitHub App Integration** — Reviews posted as a bot, not your personal account
-- **Go SDK** — Programmatic API via `pkg/review`
-- **CLI** — Full-featured command-line interface
-- **MCP Server** — Native integration with Claude Code
-- **Multi-Agent Spec** — Agent definition follows the [multi-agent-spec](https://github.com/plexusone/multi-agent-spec) format
+- 🤖 **GitHub App Integration** — Reviews posted as a bot, not your personal account
+- 📦 **Go SDK** — Programmatic API via `pkg/review`
+- ⌨️ **CLI** — Full-featured command-line interface
+- 🔌 **MCP Server** — Native integration with Claude Code
+- 📋 **Multi-Agent Spec** — Agent definition follows the [multi-agent-spec](https://github.com/plexusone/multi-agent-spec) format
 
 ## Installation
 
