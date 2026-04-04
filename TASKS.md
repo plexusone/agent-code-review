@@ -2,12 +2,12 @@
 
 ## High Priority
 
-- [ ] **Remove local replace directive** - Clean up `go.mod` before pushing to origin
-- [ ] **Add tests** - Unit tests for `pkg/review` and integration tests for CLI commands
+- [x] **Remove local replace directive** - Clean up `go.mod` before pushing to origin (already done)
+- [x] **Add tests** - Unit tests for `pkg/review` and integration tests for CLI commands
 
 ## Medium Priority
 
-- [ ] **Add CI workflow** - GitHub Actions workflow for lint/test/build
+- [x] **Add CI workflow** - GitHub Actions workflow for lint/test/build (already exists in .github/workflows/)
 - [ ] **Consider error wrapping** - Use `fmt.Errorf("context: %w", err)` for better debugging and stack traces
 
 ## Low Priority
