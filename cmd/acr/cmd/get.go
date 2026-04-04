@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/plexusone/agent-code-review/pkg/config"
+	"github.com/plexusone/agent-code-review/pkg/input"
 	"github.com/spf13/cobra"
 )
 
@@ -28,22 +30,22 @@ func init() {
 func runGet(cmd *cobra.Command, args []string) error {
 	ctx := context.Background()
 
-	owner, repo, err := getOwnerRepo(cmd)
+	repoCfg, err := getRepoConfig(cmd)
 	if err != nil {
 		return err
 	}
 
-	prNumber, err := parsePRNumber(args[0])
+	prNumber, err := input.ParsePRNumber(args[0])
 	if err != nil {
 		return err
 	}
 
-	client, err := createClient(ctx)
+	client, err := config.CreateClient(ctx)
 	if err != nil {
 		return err
 	}
 
-	pr, err := client.GetPR(ctx, owner, repo, prNumber)
+	pr, err := client.GetPR(ctx, repoCfg.Owner, repoCfg.Repo, prNumber)
 	if err != nil {
 		return fmt.Errorf("getting PR: %w", err)
 	}

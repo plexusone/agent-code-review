@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/plexusone/agent-code-review/internal/mcp"
+	"github.com/plexusone/agent-code-review/pkg/config"
 	"github.com/spf13/cobra"
 )
 
@@ -39,7 +40,7 @@ func init() {
 func runServe(cmd *cobra.Command, args []string) error {
 	ctx := context.Background()
 
-	client, err := createClient(ctx)
+	client, err := config.CreateClient(ctx)
 	if err != nil {
 		return fmt.Errorf("creating client: %w", err)
 	}

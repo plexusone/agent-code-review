@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/plexusone/agent-code-review/pkg/config"
 	"github.com/spf13/cobra"
 )
 
@@ -27,17 +28,17 @@ func init() {
 func runList(cmd *cobra.Command, args []string) error {
 	ctx := context.Background()
 
-	owner, repo, err := getOwnerRepo(cmd)
+	repoCfg, err := getRepoConfig(cmd)
 	if err != nil {
 		return err
 	}
 
-	client, err := createClient(ctx)
+	client, err := config.CreateClient(ctx)
 	if err != nil {
 		return err
 	}
 
-	prs, err := client.ListOpenPRs(ctx, owner, repo)
+	prs, err := client.ListOpenPRs(ctx, repoCfg.Owner, repoCfg.Repo)
 	if err != nil {
 		return fmt.Errorf("listing PRs: %w", err)
 	}

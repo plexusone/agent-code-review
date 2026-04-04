@@ -2,9 +2,7 @@
 package cmd
 
 import (
-	"fmt"
-	"os"
-
+	"github.com/plexusone/agent-code-review/pkg/config"
 	"github.com/spf13/cobra"
 )
 
@@ -29,20 +27,8 @@ func init() {
 	rootCmd.PersistentFlags().StringP("repo", "r", "", "Repository name")
 }
 
-func getOwnerRepo(cmd *cobra.Command) (string, string, error) {
+func getRepoConfig(cmd *cobra.Command) (*config.RepoConfig, error) {
 	owner, _ := cmd.Flags().GetString("owner")
 	repo, _ := cmd.Flags().GetString("repo")
-
-	if owner == "" {
-		owner = os.Getenv("GITHUB_OWNER")
-	}
-	if repo == "" {
-		repo = os.Getenv("GITHUB_REPO")
-	}
-
-	if owner == "" || repo == "" {
-		return "", "", fmt.Errorf("owner and repo are required (use --owner/-o and --repo/-r flags or GITHUB_OWNER/GITHUB_REPO env vars)")
-	}
-
-	return owner, repo, nil
+	return config.ResolveRepo(owner, repo)
 }

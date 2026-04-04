@@ -4,6 +4,8 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/plexusone/agent-code-review/pkg/config"
+	"github.com/plexusone/agent-code-review/pkg/input"
 	"github.com/plexusone/agent-code-review/pkg/review"
 	"github.com/spf13/cobra"
 )
@@ -31,12 +33,12 @@ func init() {
 func runComment(cmd *cobra.Command, args []string) error {
 	ctx := context.Background()
 
-	owner, repo, err := getOwnerRepo(cmd)
+	repoCfg, err := getRepoConfig(cmd)
 	if err != nil {
 		return err
 	}
 
-	prNumber, err := parsePRNumber(args[0])
+	prNumber, err := input.ParsePRNumber(args[0])
 	if err != nil {
 		return err
 	}
@@ -46,14 +48,14 @@ func runComment(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-	client, err := createClient(ctx)
+	client, err := config.CreateClient(ctx)
 	if err != nil {
 		return err
 	}
 
 	result, err := client.CreateComment(ctx, &review.CommentInput{
-		Owner:    owner,
-		Repo:     repo,
+		Owner:    repoCfg.Owner,
+		Repo:     repoCfg.Repo,
 		PRNumber: prNumber,
 		Body:     body,
 	})
