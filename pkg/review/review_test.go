@@ -194,7 +194,9 @@ func TestCreateReview_AppendsFooter(t *testing.T) {
 			}
 			w.Header().Set("Content-Type", "application/json")
 			w.WriteHeader(http.StatusOK)
-			w.Write([]byte(`{"id": 1, "html_url": "https://github.com/owner/repo/pull/1#pullrequestreview-1"}`))
+			if _, err := w.Write([]byte(`{"id": 1, "html_url": "https://github.com/owner/repo/pull/1#pullrequestreview-1"}`)); err != nil {
+				t.Fatalf("failed to write response: %v", err)
+			}
 			return
 		}
 		w.WriteHeader(http.StatusNotFound)
