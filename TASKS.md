@@ -2,12 +2,11 @@
 
 ## Open
 
-- [ ] **Add MCP server tests** - Unit tests for `internal/mcp` with mock review client
-- [ ] **Add CLI integration tests** - Test CLI commands with mock GitHub server
 - [ ] **Add CHANGELOG** - Track changes for releases
 
 ## Completed
 
+- [x] **Extract testable libraries** - Move CLI/MCP functionality to `pkg/config` and `pkg/input` for unit testing
 - [x] **Remove local replace directive** - Clean up `go.mod` before pushing to origin
 - [x] **Add tests** - Unit tests for `pkg/review`
 - [x] **Add CI workflow** - GitHub Actions workflow for lint/test/build
