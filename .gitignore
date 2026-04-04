@@ -1,6 +1,6 @@
 # Binaries
-acr
-agent-code-review
+/acr
+/agent-code-review
 *.exe
 *.exe~
 *.dll
