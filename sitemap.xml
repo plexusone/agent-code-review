@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://plexusone.github.io/agent-code-review/</loc>
+         <lastmod>2026-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://plexusone.github.io/agent-code-review/agent-spec/</loc>
+         <lastmod>2026-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://plexusone.github.io/agent-code-review/changelog/</loc>
+         <lastmod>2026-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://plexusone.github.io/agent-code-review/cli/</loc>
+         <lastmod>2026-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://plexusone.github.io/agent-code-review/getting-started/</loc>
+         <lastmod>2026-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://plexusone.github.io/agent-code-review/mcp/</loc>
+         <lastmod>2026-04-04</lastmod>
+    </url>
+    <url>
+         <loc>https://plexusone.github.io/agent-code-review/sdk/</loc>
+         <lastmod>2026-04-04</lastmod>
+    </url>
+</urlset>
