@@ -8,9 +8,9 @@
 ## Medium Priority
 
 - [x] **Add CI workflow** - GitHub Actions workflow for lint/test/build (already exists in .github/workflows/)
-- [ ] **Consider error wrapping** - Use `fmt.Errorf("context: %w", err)` for better debugging and stack traces
+- [x] **Consider error wrapping** - Use `fmt.Errorf("context: %w", err)` for better debugging and stack traces
 
 ## Low Priority
 
-- [ ] **Add golangci-lint config** - Create `.golangci.yml` with project-specific linting rules
-- [ ] **Add Makefile** - Common targets for build, test, lint, install
+- [x] **Add golangci-lint config** - Create `.golangci.yml` with project-specific linting rules
+- [x] **Add Makefile** - Common targets for build, test, lint, install
