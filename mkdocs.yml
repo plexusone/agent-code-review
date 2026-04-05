@@ -58,6 +58,8 @@ nav:
   - MCP Integration: mcp.md
   - Agent Specification: agent-spec.md
   - Changelog: changelog.md
+  - Releases:
+      - v0.1.0: releases/v0.1.0.md
 
 extra:
   social:
