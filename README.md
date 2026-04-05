@@ -7,6 +7,7 @@
 [![Docs][docs-godoc-svg]][docs-godoc-url]
 [![Visualization][viz-svg]][viz-url]
 [![License][license-svg]][license-url]
+[![Powered by Claude][powered-by-claude-svg]][powered-by-claude-url]
 
  [go-ci-svg]: https://github.com/plexusone/agent-code-review/actions/workflows/go-ci.yaml/badge.svg?branch=main
  [go-ci-url]: https://github.com/plexusone/agent-code-review/actions/workflows/go-ci.yaml
@@ -24,10 +25,11 @@
  [repo-url]: https://github.com/plexusone/agent-code-review
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
  [license-url]: https://github.com/plexusone/agent-code-review/blob/master/LICENSE
+ [powered-by-claude-svg]: https://img.shields.io/badge/Powered%20by-Claude-blueviolet
+ [powered-by-claude-url]: https://anthropic.com/claude
 
 AI-powered code review agent for GitHub Pull Requests.
 
-[![Powered by Claude](https://img.shields.io/badge/Powered%20by-Claude-blueviolet)](https://anthropic.com/claude)
 
 ## Overview
 
