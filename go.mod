@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/google/go-github/v84 v84.0.0
 	github.com/grokify/gogithub v0.12.1
-	github.com/modelcontextprotocol/go-sdk v1.6.0
+	github.com/modelcontextprotocol/go-sdk v1.6.1
 	github.com/plexusone/omnillm v0.15.3
 	github.com/spf13/cobra v1.10.2
 )
