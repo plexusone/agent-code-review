@@ -24,7 +24,10 @@ func main() {
     ctx := context.Background()
 
     // Create client with token auth
-    client := review.NewClientFromToken(ctx, "ghp_xxxxxxxxxxxx")
+    client, err := review.NewClientFromToken(ctx, "ghp_xxxxxxxxxxxx")
+    if err != nil {
+        log.Fatal(err)
+    }
 
     // Approve a PR
     result, err := client.Approve(ctx, "owner", "repo", 123, "LGTM!")
@@ -41,7 +44,7 @@ func main() {
 ### From Personal Access Token
 
 ```go
-client := review.NewClientFromToken(ctx, token)
+client, err := review.NewClientFromToken(ctx, token)
 ```
 
 ### From GitHub App Config
@@ -60,12 +63,17 @@ if err != nil {
 }
 ```
 
-### From Existing GitHub Client
+### From an Existing clientv1.Client
+
+`review.NewClient` takes a version-isolated [`clientv1.Client`](https://grokify.github.io/gogithub/guides/clientv1/), not a raw go-github client:
 
 ```go
-import "github.com/google/go-github/v84/github"
+import "github.com/grokify/gogithub/clientv1"
 
-gh := github.NewClient(nil).WithAuthToken(token)
+gh, err := clientv1.NewClient(ctx, token)
+if err != nil {
+    log.Fatal(err)
+}
 client := review.NewClient(gh)
 ```
 

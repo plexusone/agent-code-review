@@ -45,7 +45,7 @@ Reviews are posted as a GitHub App, appearing as `PlexusOne Code Review[bot]`, c
     ```go
     import "github.com/plexusone/agent-code-review/pkg/review"
 
-    client := review.NewClientFromToken(ctx, token)
+    client, _ := review.NewClientFromToken(ctx, token)
     result, _ := client.Approve(ctx, "owner", "repo", 123, "LGTM!")
     ```
 

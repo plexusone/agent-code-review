@@ -150,7 +150,7 @@ func main() {
     client, _ := review.NewClientFromAppConfig(ctx, cfg)
 
     // Or with token auth
-    // client := review.NewClientFromToken(ctx, "ghp_xxxx")
+    // client, _ := review.NewClientFromToken(ctx, "ghp_xxxx")
 
     // Post a review
     result, err := client.CreateReview(ctx, &review.ReviewInput{
