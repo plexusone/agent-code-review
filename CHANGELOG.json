@@ -7,6 +7,31 @@
   "maintainers": ["plexusone", "johncwang@gmail.com"],
   "releases": [
     {
+      "version": "v0.2.0",
+      "date": "2026-08-01",
+      "highlights": [
+        { "description": "**Breaking**: `pkg/review` now wraps `clientv1.Client` from gogithub instead of a raw `*github.Client`, removing the direct go-github dependency", "commit": "f9803da" },
+        { "description": "Resolves a version conflict between go-github v84 (direct) and v88/v89 (pulled in transitively), which had left the module graph unbuildable" }
+      ],
+      "breaking": [
+        { "description": "`review.NewClient()` now takes a `clientv1.Client` instead of `*github.Client`", "commit": "f9803da" },
+        { "description": "`review.NewClientFromToken()` now returns `(*Client, error)` instead of `*Client`", "commit": "f9803da" }
+      ],
+      "dependencies": [
+        { "description": "Upgraded `github.com/grokify/gogithub` from v0.11.0 to v0.15.0 and dropped `github.com/google/go-github/v84` as a direct dependency", "commit": "f9803da" },
+        { "description": "Upgraded `github.com/plexusone/omnillm` from v0.14.0 to v0.17.0", "commit": "ed882cf" },
+        { "description": "Upgraded `github.com/modelcontextprotocol/go-sdk` to v1.7.0", "commit": "3a49fa0" },
+        { "description": "GitHub Actions: `actions/checkout` 4 to 7, `actions/setup-go` 5 to 7", "commit": "ad7ca94" }
+      ],
+      "fixed": [
+        { "description": "Corrected `--md-primary-bg-color` for header text contrast in docs theme", "commit": "bead619" }
+      ],
+      "documentation": [
+        { "description": "Applied a unified PlexusOne MkDocs theme and local stylesheet", "commit": "9f5e4f1" },
+        { "description": "Updated README and SDK/index guides for the `clientv1.Client`-based API (client creation now returns an error; removed the raw go-github client example)" }
+      ]
+    },
+    {
       "version": "v0.1.0",
       "date": "2026-04-04",
       "highlights": [
