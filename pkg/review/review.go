@@ -5,9 +5,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/google/go-github/v84/github"
+	"github.com/grokify/gogithub"
 	"github.com/grokify/gogithub/auth"
-	"github.com/grokify/gogithub/pr"
+	"github.com/grokify/gogithub/clientv1"
 )
 
 // ReviewFooter is appended to all reviews for transparency.
@@ -15,12 +15,12 @@ const ReviewFooter = "\n\n---\n<sub>🤖 Powered by Claude • PlexusOne Code Re
 
 // Client provides code review operations.
 type Client struct {
-	gh *github.Client
+	client clientv1.Client
 }
 
-// NewClient creates a new review client from a GitHub client.
-func NewClient(gh *github.Client) *Client {
-	return &Client{gh: gh}
+// NewClient creates a new review client from a version-isolated GitHub client.
+func NewClient(client clientv1.Client) *Client {
+	return &Client{client: client}
 }
 
 // NewClientFromAppConfig creates a new review client using GitHub App authentication.
@@ -29,13 +29,16 @@ func NewClientFromAppConfig(ctx context.Context, cfg *auth.AppConfig) (*Client, 
 	if err != nil {
 		return nil, fmt.Errorf("creating github client: %w", err)
 	}
-	return &Client{gh: gh}, nil
+	return &Client{client: clientv1.NewClientFromRaw(gh)}, nil
 }
 
 // NewClientFromToken creates a new review client using a personal access token.
-func NewClientFromToken(ctx context.Context, token string) *Client {
-	gh := auth.NewGitHubClient(ctx, token)
-	return &Client{gh: gh}
+func NewClientFromToken(ctx context.Context, token string) (*Client, error) {
+	client, err := clientv1.NewClient(ctx, token)
+	if err != nil {
+		return nil, fmt.Errorf("creating github client: %w", err)
+	}
+	return &Client{client: client}, nil
 }
 
 // ReviewEvent represents the type of review action.
@@ -69,13 +72,16 @@ type ReviewResult struct {
 // The review footer is automatically appended to the body.
 func (c *Client) CreateReview(ctx context.Context, input *ReviewInput) (*ReviewResult, error) {
 	body := input.Body + ReviewFooter
-	review, err := pr.CreateReview(ctx, c.gh, input.Owner, input.Repo, input.PRNumber, pr.ReviewEvent(input.Event), body)
+	review, err := c.client.CreatePullRequestReview(ctx, input.Owner, input.Repo, input.PRNumber, &clientv1.CreateReviewInput{
+		Event: string(input.Event),
+		Body:  body,
+	})
 	if err != nil {
 		return nil, fmt.Errorf("creating review: %w", err)
 	}
 	return &ReviewResult{
-		ID:      review.GetID(),
-		HTMLURL: review.GetHTMLURL(),
+		ID:      review.ID,
+		HTMLURL: review.HTMLURL,
 	}, nil
 }
 
@@ -97,13 +103,13 @@ type CommentResult struct {
 // The review footer is automatically appended to the body.
 func (c *Client) CreateComment(ctx context.Context, input *CommentInput) (*CommentResult, error) {
 	body := input.Body + ReviewFooter
-	comment, err := pr.CreateIssueComment(ctx, c.gh, input.Owner, input.Repo, input.PRNumber, body)
+	comment, err := c.client.CreateIssueComment(ctx, input.Owner, input.Repo, input.PRNumber, body)
 	if err != nil {
 		return nil, fmt.Errorf("creating comment: %w", err)
 	}
 	return &CommentResult{
-		ID:      comment.GetID(),
-		HTMLURL: comment.GetHTMLURL(),
+		ID:      comment.ID,
+		HTMLURL: comment.HTMLURL,
 	}, nil
 }
 
@@ -120,13 +126,18 @@ type LineCommentInput struct {
 
 // CreateLineComment adds a comment on a specific line in a PR diff.
 func (c *Client) CreateLineComment(ctx context.Context, input *LineCommentInput) (*CommentResult, error) {
-	comment, err := pr.CreateLineComment(ctx, c.gh, input.Owner, input.Repo, input.PRNumber, input.CommitID, input.Path, input.Body, input.Line)
+	comment, err := c.client.CreatePullRequestComment(ctx, input.Owner, input.Repo, input.PRNumber, &clientv1.CreatePRCommentInput{
+		Body:     input.Body,
+		CommitID: input.CommitID,
+		Path:     input.Path,
+		Line:     input.Line,
+	})
 	if err != nil {
 		return nil, fmt.Errorf("creating line comment: %w", err)
 	}
 	return &CommentResult{
-		ID:      comment.GetID(),
-		HTMLURL: comment.GetHTMLURL(),
+		ID:      comment.ID,
+		HTMLURL: comment.HTMLURL,
 	}, nil
 }
 
@@ -145,26 +156,26 @@ type PRInfo struct {
 
 // GetPR retrieves pull request details.
 func (c *Client) GetPR(ctx context.Context, owner, repo string, number int) (*PRInfo, error) {
-	ghPR, err := pr.GetPR(ctx, c.gh, owner, repo, number)
+	ghPR, err := c.client.GetPullRequest(ctx, owner, repo, number)
 	if err != nil {
 		return nil, err
 	}
 	return &PRInfo{
-		Number:  ghPR.GetNumber(),
-		Title:   ghPR.GetTitle(),
-		Body:    ghPR.GetBody(),
-		State:   ghPR.GetState(),
-		Author:  ghPR.GetUser().GetLogin(),
-		Head:    ghPR.GetHead().GetRef(),
-		Base:    ghPR.GetBase().GetRef(),
-		Commits: ghPR.GetCommits(),
-		HTMLURL: ghPR.GetHTMLURL(),
+		Number:  ghPR.Number,
+		Title:   ghPR.Title,
+		Body:    ghPR.Body,
+		State:   ghPR.State,
+		Author:  userLogin(ghPR.User),
+		Head:    branchRef(ghPR.Head),
+		Base:    branchRef(ghPR.Base),
+		Commits: ghPR.Commits,
+		HTMLURL: ghPR.HTMLURL,
 	}, nil
 }
 
 // GetPRDiff retrieves the diff for a pull request.
 func (c *Client) GetPRDiff(ctx context.Context, owner, repo string, number int) (string, error) {
-	return pr.GetPRDiff(ctx, c.gh, owner, repo, number)
+	return c.client.GetPullRequestDiff(ctx, owner, repo, number)
 }
 
 // PRSummary contains basic pull request information for listings.
@@ -178,11 +189,8 @@ type PRSummary struct {
 
 // ListOpenPRs lists open pull requests in a repository.
 func (c *Client) ListOpenPRs(ctx context.Context, owner, repo string) ([]PRSummary, error) {
-	prs, err := pr.ListPRs(ctx, c.gh, owner, repo, &github.PullRequestListOptions{
+	prs, err := c.client.ListPullRequests(ctx, owner, repo, &clientv1.ListPullRequestsOptions{
 		State: "open",
-		ListOptions: github.ListOptions{
-			PerPage: 30,
-		},
 	})
 	if err != nil {
 		return nil, err
@@ -191,11 +199,11 @@ func (c *Client) ListOpenPRs(ctx context.Context, owner, repo string) ([]PRSumma
 	result := make([]PRSummary, len(prs))
 	for i, p := range prs {
 		result[i] = PRSummary{
-			Number:  p.GetNumber(),
-			Title:   p.GetTitle(),
-			Author:  p.GetUser().GetLogin(),
-			Head:    p.GetHead().GetRef(),
-			HTMLURL: p.GetHTMLURL(),
+			Number:  p.Number,
+			Title:   p.Title,
+			Author:  userLogin(p.User),
+			Head:    branchRef(p.Head),
+			HTMLURL: p.HTMLURL,
 		}
 	}
 	return result, nil
@@ -232,4 +240,18 @@ func (c *Client) Comment(ctx context.Context, owner, repo string, number int, bo
 		Event:    EventComment,
 		Body:     body,
 	})
+}
+
+func userLogin(u *gogithub.User) string {
+	if u == nil {
+		return ""
+	}
+	return u.Login
+}
+
+func branchRef(b *gogithub.PullRequestBranch) string {
+	if b == nil {
+		return ""
+	}
+	return b.Ref
 }

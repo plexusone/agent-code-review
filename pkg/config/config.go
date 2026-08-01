@@ -48,5 +48,5 @@ func CreateClient(ctx context.Context) (*review.Client, error) {
 		return nil, fmt.Errorf("no authentication configured: set up GitHub App config or GITHUB_TOKEN env var")
 	}
 
-	return review.NewClientFromToken(ctx, token), nil
+	return review.NewClientFromToken(ctx, token)
 }

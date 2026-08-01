@@ -7,7 +7,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/google/go-github/v84/github"
+	"github.com/grokify/gogithub/clientv1"
 )
 
 func TestReviewFooter(t *testing.T) {
@@ -36,23 +36,29 @@ func TestReviewEvent_Constants(t *testing.T) {
 }
 
 func TestNewClient(t *testing.T) {
-	gh := github.NewClient(nil)
+	gh, err := clientv1.NewClient(context.Background(), "test-token")
+	if err != nil {
+		t.Fatalf("failed to create client: %v", err)
+	}
 	client := NewClient(gh)
 	if client == nil {
 		t.Fatal("NewClient returned nil")
 	}
-	if client.gh != gh {
+	if client.client != gh {
 		t.Error("NewClient did not set the GitHub client correctly")
 	}
 }
 
 func TestNewClientFromToken(t *testing.T) {
 	ctx := context.Background()
-	client := NewClientFromToken(ctx, "test-token")
+	client, err := NewClientFromToken(ctx, "test-token")
+	if err != nil {
+		t.Fatalf("NewClientFromToken failed: %v", err)
+	}
 	if client == nil {
 		t.Fatal("NewClientFromToken returned nil")
 	}
-	if client.gh == nil {
+	if client.client == nil {
 		t.Error("NewClientFromToken did not create a GitHub client")
 	}
 }
@@ -171,7 +177,11 @@ func TestPRSummary_Fields(t *testing.T) {
 func setupMockGitHub(t *testing.T, handler http.HandlerFunc) (*Client, *httptest.Server) {
 	t.Helper()
 	server := httptest.NewServer(handler)
-	gh, err := github.NewClient(nil).WithEnterpriseURLs(server.URL, server.URL)
+	gh, err := clientv1.NewClientWithOptions(context.Background(), clientv1.ClientOptions{
+		Token:     "test-token",
+		BaseURL:   server.URL,
+		UploadURL: server.URL,
+	})
 	if err != nil {
 		t.Fatalf("failed to create client: %v", err)
 	}
