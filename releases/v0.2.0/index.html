@@ -10,11 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/agent-code-review/releases/v0.1.0/">
+        <link rel="canonical" href="https://plexusone.github.io/agent-code-review/releases/v0.2.0/">
       
       
-        <link rel="prev" href="../v0.2.0/">
+        <link rel="prev" href="../../changelog/">
       
+      
+        <link rel="next" href="../v0.1.0/">
       
       
         
@@ -25,7 +27,7 @@
     
     
       
-        <title>v0.1.0 - Agent Code Review</title>
+        <title>v0.2.0 - Agent Code Review</title>
       
     
     
@@ -80,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#v010-release-notes" class="md-skip">
+        <a href="#v020-release-notes" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              v0.1.0
+              v0.2.0
             
           </span>
         </div>
@@ -535,34 +537,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../v0.2.0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    v0.2.0
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -582,7 +556,7 @@
   <span class="md-ellipsis">
     
   
-    v0.1.0
+    v0.2.0
   
 
     
@@ -600,7 +574,7 @@
   <span class="md-ellipsis">
     
   
-    v0.1.0
+    v0.2.0
   
 
     
@@ -637,22 +611,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#breaking-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Breaking Changes
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Features">
+    <nav class="md-nav" aria-label="Breaking Changes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#go-sdk-pkgreview" class="md-nav__link">
+  <a href="#reviewnewclient" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Go SDK (pkg/review)
+        review.NewClient()
       
     </span>
   </a>
@@ -660,10 +634,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cli-acr" class="md-nav__link">
+  <a href="#reviewnewclientfromtoken" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI (acr)
+        review.NewClientFromToken()
       
     </span>
   </a>
@@ -671,32 +645,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mcp-server" class="md-nav__link">
+  <a href="#reviewnewclientfromappconfig" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MCP Server
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ai-review-acr-ai-review" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AI Review (acr ai-review)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitHub Action
+        review.NewClientFromAppConfig()
       
     </span>
   </a>
@@ -709,10 +661,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
+  <a href="#why-this-happened" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Authentication
+        Why This Happened
       
     </span>
   </a>
@@ -720,21 +672,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#migration-guide" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
+        Migration Guide
       
     </span>
   </a>
@@ -746,6 +687,17 @@
     <span class="md-ellipsis">
       
         Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
       
     </span>
   </a>
@@ -767,6 +719,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v0.1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    v0.1.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -817,22 +797,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#breaking-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Breaking Changes
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Features">
+    <nav class="md-nav" aria-label="Breaking Changes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#go-sdk-pkgreview" class="md-nav__link">
+  <a href="#reviewnewclient" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Go SDK (pkg/review)
+        review.NewClient()
       
     </span>
   </a>
@@ -840,10 +820,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cli-acr" class="md-nav__link">
+  <a href="#reviewnewclientfromtoken" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI (acr)
+        review.NewClientFromToken()
       
     </span>
   </a>
@@ -851,32 +831,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mcp-server" class="md-nav__link">
+  <a href="#reviewnewclientfromappconfig" class="md-nav__link">
     <span class="md-ellipsis">
       
-        MCP Server
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ai-review-acr-ai-review" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AI Review (acr ai-review)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#github-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitHub Action
+        review.NewClientFromAppConfig()
       
     </span>
   </a>
@@ -889,10 +847,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
+  <a href="#why-this-happened" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Authentication
+        Why This Happened
       
     </span>
   </a>
@@ -900,21 +858,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#migration-guide" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
+        Migration Guide
       
     </span>
   </a>
@@ -926,6 +873,17 @@
     <span class="md-ellipsis">
       
         Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
       
     </span>
   </a>
@@ -963,146 +921,96 @@
   
 
 
-<h1 id="v010-release-notes">v0.1.0 Release Notes<a class="headerlink" href="#v010-release-notes" title="Permanent link">&para;</a></h1>
-<p><strong>Release Date:</strong> 2026-04-04</p>
-<p>Agent Code Review v0.1.0 is the initial release, providing AI-powered code review capabilities for GitHub Pull Requests.</p>
+<h1 id="v020-release-notes">v0.2.0 Release Notes<a class="headerlink" href="#v020-release-notes" title="Permanent link">&para;</a></h1>
+<p><strong>Release Date:</strong> 2026-08-01</p>
+<p>Agent Code Review v0.2.0 is a <strong>breaking change</strong> release that migrates the Go SDK's GitHub client
+from a raw go-github client to gogithub's version-isolated <code>clientv1.Client</code>. This resolves a
+module-graph conflict that had left the project unbuildable, and removes the direct go-github
+dependency going forward.</p>
 <h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Three usage modes</strong> — Go SDK, CLI, and MCP Server for Claude Code</li>
-<li><strong>GitHub App integration</strong> — Reviews posted as a bot for clear distinction from human reviews</li>
-<li><strong>AI-powered reviews</strong> — Automated code review using multiple LLM providers</li>
-<li><strong>Manual cost control</strong> — GitHub Action with workflow_dispatch for on-demand reviews</li>
+<li><strong>Breaking</strong>: <code>pkg/review</code> now wraps <code>clientv1.Client</code> instead of <code>*github.Client</code></li>
+<li><strong>Dependency conflict resolved</strong> — go-github v84 (direct) and v88/v89 (pulled in transitively via other dependencies) could no longer coexist in the module graph</li>
+<li><strong>No more direct go-github dependency</strong> — <code>github.com/google/go-github/v84</code> is gone from <code>go.mod</code>; GitHub App auth is adapted internally via <code>clientv1.NewClientFromRaw</code></li>
 </ul>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
-<h3 id="go-sdk-pkgreview">Go SDK (<code>pkg/review</code>)<a class="headerlink" href="#go-sdk-pkgreview" title="Permanent link">&para;</a></h3>
-<p>Programmatic API for GitHub code review operations:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">review</span><span class="p">.</span><span class="nx">NewClientFromAppConfig</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">cfg</span><span class="p">)</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">CreateReview</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">review</span><span class="p">.</span><span class="nx">ReviewInput</span><span class="p">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nx">Owner</span><span class="p">:</span><span class="w">    </span><span class="s">&quot;owner&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nx">Repo</span><span class="p">:</span><span class="w">     </span><span class="s">&quot;repo&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nx">PRNumber</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nx">Event</span><span class="p">:</span><span class="w">    </span><span class="nx">review</span><span class="p">.</span><span class="nx">EventApprove</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nx">Body</span><span class="p">:</span><span class="w">     </span><span class="s">&quot;LGTM!&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">})</span>
-</code></pre></div>
-<p>Available operations:</p>
-<ul>
-<li><code>CreateReview</code> — Post approval, comment, or request changes</li>
-<li><code>CreateComment</code> — Add general PR comments</li>
-<li><code>CreateLineComment</code> — Comment on specific diff lines</li>
-<li><code>GetPR</code> — Fetch PR metadata</li>
-<li><code>GetPRDiff</code> — Fetch PR diff for analysis</li>
-<li><code>ListOpenPRs</code> — List open PRs in a repository</li>
-</ul>
-<h3 id="cli-acr">CLI (<code>acr</code>)<a class="headerlink" href="#cli-acr" title="Permanent link">&para;</a></h3>
-<p>Full-featured command-line interface:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Install</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>go<span class="w"> </span>install<span class="w"> </span>github.com/plexusone/agent-code-review/cmd/acr@latest
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Post a review</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>acr<span class="w"> </span>review<span class="w"> </span><span class="m">123</span><span class="w"> </span>-o<span class="w"> </span>owner<span class="w"> </span>-r<span class="w"> </span>repo<span class="w"> </span>-e<span class="w"> </span>APPROVE<span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;LGTM!&quot;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># AI-powered review</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>acr<span class="w"> </span>ai-review<span class="w"> </span><span class="m">123</span><span class="w"> </span>-o<span class="w"> </span>owner<span class="w"> </span>-r<span class="w"> </span>repo<span class="w"> </span>--model<span class="w"> </span>claude-sonnet-4
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Run as MCP server</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>acr<span class="w"> </span>serve
-</code></pre></div>
-<h3 id="mcp-server">MCP Server<a class="headerlink" href="#mcp-server" title="Permanent link">&para;</a></h3>
-<p>Native integration with Claude Code via Model Context Protocol:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;code-review&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;acr&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;serve&quot;</span><span class="p">]</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
-</code></pre></div>
-<p>Exposes 6 tools: <code>review_pr</code>, <code>comment_pr</code>, <code>line_comment</code>, <code>get_pr_diff</code>, <code>get_pr</code>, <code>list_prs</code></p>
-<h3 id="ai-review-acr-ai-review">AI Review (<code>acr ai-review</code>)<a class="headerlink" href="#ai-review-acr-ai-review" title="Permanent link">&para;</a></h3>
-<p>Automated code reviews using LLMs with configurable focus:</p>
-<table>
-<thead>
-<tr>
-<th>Scope</th>
-<th>Focus Areas</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>full</code></td>
-<td>Correctness, security, performance, maintainability, testing</td>
-</tr>
-<tr>
-<td><code>security</code></td>
-<td>Injections, auth flaws, secrets, input validation</td>
-</tr>
-<tr>
-<td><code>style</code></td>
-<td>Naming, readability, consistency, idioms</td>
-</tr>
-<tr>
-<td><code>performance</code></td>
-<td>Queries, algorithms, memory, I/O, concurrency</td>
-</tr>
-</tbody>
-</table>
-<p>Supported providers:</p>
-<ul>
-<li>Anthropic (Claude Sonnet, Opus, Haiku)</li>
-<li>OpenAI (GPT-4o, GPT-4 Turbo)</li>
-<li>Google (Gemini 1.5 Pro, Flash)</li>
-<li>X.AI (Grok 2)</li>
-<li>Ollama (local models)</li>
-</ul>
-<h3 id="github-action">GitHub Action<a class="headerlink" href="#github-action" title="Permanent link">&para;</a></h3>
-<p>Manual workflow_dispatch trigger for cost-controlled AI reviews:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AI Code Review</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">on</span><span class="p">:</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">inputs</span><span class="p">:</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">pr_number</span><span class="p">:</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Pull</span><span class="nv"> </span><span class="s">Request</span><span class="nv"> </span><span class="s">number</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">review&#39;</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">number</span>
-</code></pre></div>
-<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
-<p>Two authentication methods supported:</p>
+<h2 id="breaking-changes">Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h2>
+<h3 id="reviewnewclient"><code>review.NewClient()</code><a class="headerlink" href="#reviewnewclient" title="Permanent link">&para;</a></h3>
+<p><strong>Before (v0.1.0):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;github.com/google/go-github/v84/github&quot;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nx">gh</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">github</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="kc">nil</span><span class="p">).</span><span class="nx">WithAuthToken</span><span class="p">(</span><span class="nx">token</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">review</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">gh</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>After (v0.2.0):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;github.com/grokify/gogithub/clientv1&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nx">gh</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">clientv1</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">review</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">gh</span><span class="p">)</span>
+</code></pre></div></p>
+<p><code>review.NewClient()</code> now takes a <a href="https://grokify.github.io/gogithub/guides/clientv1/"><code>clientv1.Client</code></a>
+instead of a raw <code>*github.Client</code>.</p>
+<h3 id="reviewnewclientfromtoken"><code>review.NewClientFromToken()</code><a class="headerlink" href="#reviewnewclientfromtoken" title="Permanent link">&para;</a></h3>
+<p><strong>Before (v0.1.0):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">review</span><span class="p">.</span><span class="nx">NewClientFromToken</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;your-github-token&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>After (v0.2.0):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">review</span><span class="p">.</span><span class="nx">NewClientFromToken</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;your-github-token&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><code>review.NewClientFromToken()</code> now returns <code>(*Client, error)</code> instead of <code>*Client</code>, since building
+a <code>clientv1.Client</code> can fail.</p>
+<h3 id="reviewnewclientfromappconfig"><code>review.NewClientFromAppConfig()</code><a class="headerlink" href="#reviewnewclientfromappconfig" title="Permanent link">&para;</a></h3>
+<p>Unchanged — this constructor already returned <code>(*Client, error)</code>.</p>
+<h2 id="why-this-happened">Why This Happened<a class="headerlink" href="#why-this-happened" title="Permanent link">&para;</a></h2>
+<p>gogithub v0.15.0 migrated its <code>pr</code> and <code>auth</code> packages to <code>clientv1.Client</code> as part of its own
+version-isolation work. That was itself a breaking change for any code, like this SDK's
+<code>pkg/review</code>, that still passed a raw <code>*github.Client</code> into those packages. Upgrading gogithub
+without migrating <code>pkg/review</code> was not possible — the two changes had to land together.</p>
+<p>Migrating to <code>clientv1.Client</code> also fixes the root problem that motivated the upgrade: this
+project directly required <code>github.com/google/go-github/v84</code>, while other dependencies (including
+the previous gogithub version) pulled in <code>v88</code>/<code>v89</code> transitively. Two different major versions of
+the same package existed as two different Go types, and the module simply would not build. Routing
+through <code>clientv1.Client</code> — which wraps whichever go-github version gogithub uses internally —
+removes the direct dependency entirely, so this conflict can't recur.</p>
+<h2 id="migration-guide">Migration Guide<a class="headerlink" href="#migration-guide" title="Permanent link">&para;</a></h2>
 <ol>
-<li><strong>GitHub App</strong> (Recommended) — Reviews appear as bot</li>
-<li><strong>Personal Access Token</strong> — Reviews appear as your account</li>
+<li>
+<p><strong>Replace client creation:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Old</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nx">gh</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">github</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="kc">nil</span><span class="p">).</span><span class="nx">WithAuthToken</span><span class="p">(</span><span class="nx">token</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">review</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">gh</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// New</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nx">gh</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">clientv1</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">review</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">gh</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Handle the new error return from <code>NewClientFromToken</code>:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// Old</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nx">client</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">review</span><span class="p">.</span><span class="nx">NewClientFromToken</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">// New</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">review</span><span class="p">.</span><span class="nx">NewClientFromToken</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">token</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Update imports:</strong>
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Remove</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">&quot;github.com/google/go-github/v84/github&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1">// Add</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s">&quot;github.com/grokify/gogithub/clientv1&quot;</span>
+</code></pre></div></p>
+</li>
 </ol>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Install the CLI:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>go<span class="w"> </span>install<span class="w"> </span>github.com/plexusone/agent-code-review/cmd/acr@latest
-</code></pre></div>
-<ol>
-<li>Configure authentication:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># GitHub App</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GITHUB_APP_ID</span><span class="o">=</span><span class="m">123456</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GITHUB_INSTALLATION_ID</span><span class="o">=</span><span class="m">12345678</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GITHUB_PRIVATE_KEY_PATH</span><span class="o">=</span>~/.config/gogithub/private-key.pem
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># Or personal token</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GITHUB_TOKEN</span><span class="o">=</span>ghp_xxxxxxxxxxxx
-</code></pre></div>
-<ol>
-<li>Run a review:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>acr<span class="w"> </span>review<span class="w"> </span><span class="m">123</span><span class="w"> </span>-o<span class="w"> </span>owner<span class="w"> </span>-r<span class="w"> </span>repo<span class="w"> </span>-e<span class="w"> </span>COMMENT<span class="w"> </span>-b<span class="w"> </span><span class="s2">&quot;Looks good!&quot;</span>
-</code></pre></div>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../getting-started/">Getting Started</a></li>
-<li><a href="../../cli/">CLI Reference</a></li>
-<li><a href="../../ai-review/">AI Review</a></li>
-<li><a href="../../sdk/">Go SDK</a></li>
-<li><a href="../../mcp/">MCP Integration</a></li>
-</ul>
+<p>GitHub App authentication (<code>review.NewClientFromAppConfig</code>) requires no changes — its signature
+was already <code>(*Client, error)</code>.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1114,18 +1022,18 @@
 </thead>
 <tbody>
 <tr>
-<td><code>github.com/google/go-github/v84</code></td>
-<td>v84.0.0</td>
-<td>GitHub API client</td>
+<td><code>github.com/grokify/gogithub</code></td>
+<td>v0.15.0 (was v0.11.0)</td>
+<td>Version-isolated GitHub client (<code>clientv1.Client</code>)</td>
 </tr>
 <tr>
-<td><code>github.com/grokify/gogithub</code></td>
-<td>v0.11.0</td>
-<td>GitHub App authentication</td>
+<td><code>github.com/plexusone/omnillm</code></td>
+<td>v0.17.0 (was v0.14.0)</td>
+<td>Multi-LLM integration</td>
 </tr>
 <tr>
 <td><code>github.com/modelcontextprotocol/go-sdk</code></td>
-<td>v1.4.1</td>
+<td>v1.7.0</td>
 <td>MCP server</td>
 </tr>
 <tr>
@@ -1133,13 +1041,14 @@
 <td>v1.10.2</td>
 <td>CLI framework</td>
 </tr>
-<tr>
-<td><code>github.com/plexusone/omnillm</code></td>
-<td>v0.9.0</td>
-<td>Multi-LLM integration</td>
-</tr>
 </tbody>
 </table>
+<p><code>github.com/google/go-github/v84</code> is no longer a direct dependency.</p>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>README, <a href="../../sdk/">Go SDK Guide</a>, and <a href="../../">Home</a> examples updated for <code>clientv1.Client</code></li>
+<li>Applied a unified PlexusOne MkDocs theme</li>
+</ul>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://github.com/plexusone/agent-code-review">GitHub Repository</a></li>
