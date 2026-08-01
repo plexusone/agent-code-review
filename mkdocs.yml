@@ -30,20 +30,15 @@ theme:
 
 extra_css:
   - https://plexusone.dev/css/plexusone-mkdocs.css
-  - stylesheets/plexusone.css
-
-plugins:
-  - search
 
 markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
-  - pymdownx.inlinehilite
+  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - admonition
+  - pymdownx.details
   - tables
   - toc:
       permalink: true
